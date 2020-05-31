@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 
+///ContO deals with stuff found in "data/models.radq"
 public class ContO {
 	Medium m;
 	Trackers t;
@@ -23,24 +24,24 @@ public class ContO {
 	int maxR = 0;
 	int disp = 0;
 	int disline = 7;
-	boolean shadow = false;
-	boolean noline = false;
-	float grounded = 1.0f;
+	boolean shadow = false;           ///Whether a shadow should be drawn under a model or not
+	boolean noline = false;           ///Whether a black line connecting two coordinates should be drawn or not
+	float grounded = 1.0f;            ///This is present at the beginning of all codes of models for track pieces, no clue
 	int grat = 0;
 	int[] keyx = new int[4];
 	int[] keyz = new int[4];
-	int[] txy;
-	int[] tzy;
-	int[][] tc;
-	int[] tradx;
-	int[] tradz;
-	int[] trady;
-	int[] tx;
-	int[] ty;
-	int[] tz;
-	int[] skd;
-	int[] dam;
-	boolean[] notwall;
+	int[] txy;                        ///Rotation (in degrees) of a polygon representing a hitbox about its center of x-axis ("xy" in code for track piece)
+	int[] tzy;                        ///Rotation (in degrees) of a polygon representing a hitbox about its center of z-axis ("xz" in code for track piece)
+	int[][] tc;                       ///Color code
+	int[] tradx;                      ///Length of hitbox (in coordinate points) on the X-axis ("radx" in code for track piece)
+	int[] tradz;                      ///Length of hitbox (in coordinate points) on the Z-axis ("radz" in code for track piece)
+	int[] trady;                      ///Length of hitbox (in coordinate points) on the Y-axis ("rady" in code for track piece)
+	int[] tx;                         ///Point where the center of the X-axis should be
+	int[] ty;                         ///Point where the center of the Y-axis should be
+	int[] tz;                         ///Point where the center of the Z-axis should be
+	int[] skd;                        ///Associated with "skid" in the track piece code
+	int[] dam;                        ///Makes the hitbox polygon of a track piece damaging to a car
+	boolean[] notwall;                ///Can be present in track codes
 	int tnt = 0;
 	int[] sx = new int[4];
 	int[] sy = new int[4];
