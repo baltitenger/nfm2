@@ -2,38 +2,38 @@
  * Decompiled with CFR 0.149.
  */
 public class Control {
-	boolean left = false;
+	boolean left = false;               ///Variable for keys
 	boolean right = false;
 	boolean up = false;
 	boolean down = false;
 	boolean handb = false;
-	int lookback = 0;
+	int lookback = 0;                   ///Used for looking back (pressing "X" or "Z")
 	boolean enter = false;
-	boolean arrace = false;
-	boolean mutem = false;
-	boolean mutes = false;
-	Medium m;
-	int pan = 0;
-	int attack = 0;
-	int acr = 0;
-	boolean afta = false;
-	int[] fpnt = new int[5];
-	int trfix = 0;
-	boolean forget = false;
-	boolean bulistc = false;
-	int runbul = 0;
-	int acuracy = 0;
-	int upwait = 0;
-	boolean agressed = false;
-	float skiplev = 1.0f;
-	int clrnce = 5;
-	int rampp = 0;
-	int turntyp = 0;
-	float aim = 0.0f;
-	int saftey = 30;
-	boolean perfection = false;
-	float mustland = 0.5f;
-	boolean usebounce = false;
+	boolean arrace = false;             ///Key "A", if true guidance arrow points towards car, otherwise it points towards the checkpoints
+	boolean mutem = false;              ///Variable for key "M", mutes music
+	boolean mutes = false;              ///Variable for key "N", mutes sound
+	Medium m;                           ///THIS SECTION IS FOR AI CARS ONLY
+	int pan = 0;                        ///Helps the AI decide when to turn
+	int attack = 0;                     ///Used for wasting behavior, if it's greater than 0, the AI starts attacking a specific car
+	int acr = 0;                        ///Determines which car to attack when "attack" is greater than 0
+	boolean afta = false;               ///Enables the AI to attack a car when certain conditions are true
+	int[] fpnt = new int[5];            ///An array that determines where the cars go to start fixing themselves
+	int trfix = 0;                      ///A variable that controls how the AI behaves towards a fixing hoop (when = 2, they start trying to fix)
+	boolean forget = false;             ///If true, the AI goes to the next checkpoint
+	boolean bulistc = false;            ///If true, the AI goes backwards. Also used to determine the aggression towards the player (used with a variable from 0.0F to 1.0F)
+	int runbul = 0;                     ///Basically "bulistc" but only the "AI goes backwards part". Useless.
+	int acuracy = 0;                    ///Affects the delay of when the cars turn while racing
+	int upwait = 0;                     ///Makes the AI stop for a certain amount of time (Set this to 0 for better AI)
+	boolean agressed = false;           ///If true, the AI holds "up" while turning. If false, they let go and turn slower
+	float skiplev = 1.0f;               ///If = 1.0f, the AI will skip the turns in a stage entirely
+	int clrnce = 5;                     ///The precision of the AI while driving (if = 0, the AI will TRY to always drive in the center of the road)
+	int rampp = 0;                      ///Priority of using ramps (if = -1, they ignore ramps; if = 1 they always stunt)
+	int turntyp = 0;                    ///Also affects how the AI turn. When = 0, they turn normally. When = 1, they press "down" while turning. When = 2, they press "handb" while turning.
+	float aim = 0.0f;                   ///Slightly affects the accuracy while wasting
+	int saftey = 30;                    ///Determines how careful they are while stunting (If it's high, they prepare for landing earlier)
+	boolean perfection = false;         ///If true, the AI will land better and not take any fall damage
+	float mustland = 0.5f;              ///If = 0.0f, the AI will stunt safer for a consistent amount of power; if = 1.0f, the AI will stunt for the most power gain possible
+	boolean usebounce = false;          ///If true, the AI bounces a bit after a stunt. Useless
 	float trickprf = 0.5f;
 	int stuntf = 0;
 	boolean zyinv = false;
