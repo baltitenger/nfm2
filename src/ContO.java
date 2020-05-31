@@ -18,21 +18,21 @@ public class ContO {
 	int xz = 0;
 	int xy = 0;
 	int zy = 0;
-	int wxz = 0;
-	int wzy = 0;
+	int wxz = 0;                      ///Rotation of the wheel on the xz-plane
+	int wzy = 0;                      ///Rotation of the wheel on the zy-plane
 	int dist = 0;
-	int maxR = 0;
-	int disp = 0;
-	int disline = 7;
+	int maxR = 0;                     ///Something connected to a coordinate of a track piece?
+	int disp = 0;                     ///Can be found at the beginning of the code for a track piece?
+	int disline = 7;                  ///Can be found at the beginning of the code for a track piece?
 	boolean shadow = false;           ///Whether a shadow should be drawn under a model or not
 	boolean noline = false;           ///Whether a black line connecting two coordinates should be drawn or not
-	float grounded = 1.0f;            ///This is present at the beginning of all codes of models for track pieces, no clue
+	float grounded = 1.0f;            ///Can be found at the beginning of the code for a track piece?
 	int grat = 0;
 	int[] keyx = new int[4];
 	int[] keyz = new int[4];
-	int[] txy;                        ///Rotation (in degrees) of a polygon representing a hitbox about its center of x-axis ("xy" in code for track piece)
-	int[] tzy;                        ///Rotation (in degrees) of a polygon representing a hitbox about its center of z-axis ("xz" in code for track piece)
-	int[][] tc;                       ///Color code
+	int[] txy;                        ///Rotation (in degrees) of a polygon representing a hitbox on the xy-plane ("xy" in code for track piece)
+	int[] tzy;                        ///Rotation (in degrees) of a polygon representing a hitbox on the xz-plane ("xz" in code for track piece)
+	int[][] tc;                       ///Color code?
 	int[] tradx;                      ///Length of hitbox (in coordinate points) on the X-axis ("radx" in code for track piece)
 	int[] tradz;                      ///Length of hitbox (in coordinate points) on the Z-axis ("radz" in code for track piece)
 	int[] trady;                      ///Length of hitbox (in coordinate points) on the Y-axis ("rady" in code for track piece)
@@ -41,7 +41,7 @@ public class ContO {
 	int[] tz;                         ///Point where the center of the Z-axis should be
 	int[] skd;                        ///Associated with "skid" in the track piece code
 	int[] dam;                        ///Makes the hitbox polygon of a track piece damaging to a car
-	boolean[] notwall;                ///Can be present in track codes
+	boolean[] notwall;                ///Can be present in track codes?
 	int tnt = 0;
 	int[] sx = new int[4];
 	int[] sy = new int[4];
