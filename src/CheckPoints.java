@@ -2,9 +2,9 @@
  * Decompiled with CFR 0.149.
  */
 public class CheckPoints {
-	int[] x;
-	int[] z;
-	int[] y;
+	int[] x;                                      ///X coordinates of track pieces with )p at the end
+	int[] z;                                      ///Z coordinates of track pieces with )p at the end
+	int[] y;                                      ///Y coordinates of track pieces with )p at the end
 	int[] typ;
 	int pcs = 0;
 	int nsp = 0;
@@ -24,8 +24,8 @@ public class CheckPoints {
 	int wasted = 0;
 	boolean haltall = false;
 	int pcleared = 0;
-	int[] opx;
-	int[] opz;
+	int[] opx;                                    ///X coordinates of every car in the stage (these two are used in Control.java mainly)
+	int[] opz;                                    ///Z coordinates of every car in the stage
 	int[] onscreen;
 	int[] omxz;
 	int catchfin = 0;

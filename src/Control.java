@@ -2,13 +2,13 @@
  * Decompiled with CFR 0.149.
  */
 public class Control {
-	boolean left = false;               ///Variable for keys
+	boolean left = false;               ///Variable for arrow keys
 	boolean right = false;
 	boolean up = false;
 	boolean down = false;
-	boolean handb = false;
+	boolean handb = false;              ///Spacebar
 	int lookback = 0;                   ///Used for looking back (pressing "X" or "Z")
-	boolean enter = false;
+	boolean enter = false;              ///Enter
 	boolean arrace = false;             ///Key "A", if true guidance arrow points towards car, otherwise it points towards the checkpoints
 	boolean mutem = false;              ///Variable for key "M", mutes music
 	boolean mutes = false;              ///Variable for key "N", mutes sound
@@ -17,13 +17,13 @@ public class Control {
 	int attack = 0;                     ///Used for wasting behavior, if it's greater than 0, the AI starts attacking a specific car
 	int acr = 0;                        ///Determines which car to attack when "attack" is greater than 0
 	boolean afta = false;               ///Enables the AI to attack a car when certain conditions are true
-	int[] fpnt = new int[5];            ///An array that determines where the cars go to start fixing themselves
+	int[] fpnt = new int[5];            ///The fix points in a stage (max. 5)
 	int trfix = 0;                      ///A variable that controls how the AI behaves towards a fixing hoop (when = 2, they start trying to fix)
-	boolean forget = false;             ///If true, the AI goes to the next checkpoint
+	boolean forget = false;             ///Makes the AI prioritize fixing over racing
 	boolean bulistc = false;            ///If true, the AI goes backwards. Also used to determine the aggression towards the player (used with a variable from 0.0F to 1.0F)
-	int runbul = 0;                     ///Basically "bulistc" but only the "AI goes backwards part". Useless.
+	int runbul = 0;                     ///Timer for how long "bulistc" is true
 	int acuracy = 0;                    ///Affects the delay of when the cars turn while racing
-	int upwait = 0;                     ///Makes the AI stop for a certain amount of time (Set this to 0 for better AI)
+	int upwait = 0;                     ///The amount of time (in frames) that the AI "releases" a key for
 	boolean agressed = false;           ///If true, the AI holds "up" while turning. If false, they let go and turn slower
 	float skiplev = 1.0f;               ///If = 1.0f, the AI will skip the turns in a stage entirely
 	int clrnce = 5;                     ///The precision of the AI while driving (if = 0, the AI will TRY to always drive in the center of the road)
@@ -33,19 +33,19 @@ public class Control {
 	int saftey = 30;                    ///Determines how careful they are while stunting (If it's high, they prepare for landing earlier)
 	boolean perfection = false;         ///If true, the AI will land better and not take any fall damage
 	float mustland = 0.5f;              ///If = 0.0f, the AI will stunt safer for a consistent amount of power; if = 1.0f, the AI will stunt for the most power gain possible
-	boolean usebounce = false;          ///If true, the AI bounces a bit after a stunt. Useless
+	boolean usebounce = false;          ///If true, the AI tries stunting while bouncing.
 	float trickprf = 0.5f;
 	int stuntf = 0;
-	boolean zyinv = false;
+	boolean zyinv = false;              ///If true, the AI will go backwards on a stage
 	boolean lastl = false;
 	boolean wlastl = false;
-	int hold = 0;
+	int hold = 0;                       ///The amount of frames it takes for the AI to turn.
 	int wall = -1;
 	int lwall = -1;
 	int stcnt = 0;
 	int statusque = 0;
 	int turncnt = 0;
-	int randtcnt = 0;
+	int randtcnt = 0;                  ///The delay between each turn, affected by "acuracy"
 	int upcnt = 0;
 	int trickfase = 0;
 	int swat = 0;
@@ -66,15 +66,15 @@ public class Control {
 	int flycnt = 0;
 	boolean lrswt = false;
 	boolean udswt = false;
-	boolean gowait = false;
-	int actwait = 0;
+	boolean gowait = false;             ///If true, the AI will camp in a certain spot
+	int actwait = 0;                    ///The amount of time (in frames) that the AI "presses" a key for
 	int cntrn = 0;
-	int revstart = 0;
+	int revstart = 0;                   ///How long the AI reverses after the start of the game
 	int oupnt = 0;
-	int wtz = 0;
-	int wtx = 0;
-	int frx = 0;
-	int frz = 0;
+	int wtz = 0;                        ///Z-coordinate of a camp location
+	int wtx = 0;                        ///X-coordinate of a camp location
+	int frx = 0;                        ///The X-coordinate range from which the AI will start to move from the camping spot and go for you
+	int frz = 0;                        ///The Z-coordinate range from which the AI will start to move from the camping spot and go for you
 	int frad = 0;
 	int apunch = 0;
 	boolean exitattack = false;
