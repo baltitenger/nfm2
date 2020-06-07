@@ -7,7 +7,7 @@ public class Madness {
 	Medium m;
 	Record rpd;
 	xtGraphics xt;
-	int cn = 0;
+	int cn = 0;    ///All car stats have an effect on this thing, safe to assume it's the model of a car
 	int im = 0;
 	int mxz = 0;
 	int cxz = 0;
