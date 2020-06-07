@@ -35,16 +35,16 @@ public class RadicalMod {
 
 	public RadicalMod(String s) {
 		try {
-			int k;
-			int i;
 			File file = new File(s);
 			ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
 			ZipEntry zipentry = zipinputstream.getNextEntry();
-			this.modf = new byte[i];
-			int j = 0;
-			for (i = (int)zipentry.getSize(); i > 0; i -= k) {
-				k = zipinputstream.read(this.modf, j, i);
-				j += k;
+			int size = (int)zipentry.getSize();
+			int offset = 0;
+			this.modf = new byte[size];
+			while (size > 0) {
+				int read = zipinputstream.read(this.modf, offset, size);
+				offset += read;
+				size -= read;
 			}
 		}
 		catch (Exception exception) {

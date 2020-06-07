@@ -1353,241 +1353,241 @@ implements Runnable {
 			ZipInputStream zipinputstream = new ZipInputStream(datainputstream);
 			ZipEntry zipentry = zipinputstream.getNextEntry();
 			while (zipentry != null) {
-				int k;
-				int i;
-				String s = zipentry.getName();
-				byte[] abyte0 = new byte[i];
-				int j = 0;
-				for (i = (int)zipentry.getSize(); i > 0; i -= k) {
-					k = zipinputstream.read(abyte0, j, i);
-					j += k;
+				int size = (int)zipentry.getSize();  // uncompressed size remaining
+				int offset = 0;                      // buffer offset
+				byte[] abyte0 = new byte[size];      // buffer
+				while (size > 0) {
+					int read = zipinputstream.read(abyte0, offset, size);
+					offset += read;
+					size -= read;
 				}
-				if (s.equals("cars.gif")) {
+				String name = zipentry.getName();
+				if (name.equals("cars.gif")) {
 					this.carsbg = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("smokey.gif")) {
+				if (name.equals("smokey.gif")) {
 					this.smokeypix(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("1.gif")) {
+				if (name.equals("1.gif")) {
 					this.orank[0] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("gameh.gif")) {
+				if (name.equals("gameh.gif")) {
 					this.ogameh = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("gameov.gif")) {
+				if (name.equals("gameov.gif")) {
 					this.gameov = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("lap.gif")) {
+				if (name.equals("lap.gif")) {
 					this.olap = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("paused.gif")) {
+				if (name.equals("paused.gif")) {
 					this.paused = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("select.gif")) {
+				if (name.equals("select.gif")) {
 					this.select = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("yourwasted.gif")) {
+				if (name.equals("yourwasted.gif")) {
 					this.oyourwasted = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("youwastedem.gif")) {
+				if (name.equals("youwastedem.gif")) {
 					this.oyouwastedem = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("d1.gif")) {
+				if (name.equals("d1.gif")) {
 					this.dude[0] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("d2.gif")) {
+				if (name.equals("d2.gif")) {
 					this.dude[1] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("d3.gif")) {
+				if (name.equals("d3.gif")) {
 					this.dude[2] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("float.gif")) {
+				if (name.equals("float.gif")) {
 					this.oflaot = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("1c.gif")) {
+				if (name.equals("1c.gif")) {
 					this.ocntdn[1] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("2c.gif")) {
+				if (name.equals("2c.gif")) {
 					this.ocntdn[2] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("3c.gif")) {
+				if (name.equals("3c.gif")) {
 					this.ocntdn[3] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("2.gif")) {
+				if (name.equals("2.gif")) {
 					this.orank[1] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("3.gif")) {
+				if (name.equals("3.gif")) {
 					this.orank[2] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("4.gif")) {
+				if (name.equals("4.gif")) {
 					this.orank[3] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("5.gif")) {
+				if (name.equals("5.gif")) {
 					this.orank[4] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("6.gif")) {
+				if (name.equals("6.gif")) {
 					this.orank[5] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("7.gif")) {
+				if (name.equals("7.gif")) {
 					this.orank[6] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("bgmain.jpg")) {
+				if (name.equals("bgmain.jpg")) {
 					this.bgmain = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("br.gif")) {
+				if (name.equals("br.gif")) {
 					this.br = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("loadingmusic.gif")) {
+				if (name.equals("loadingmusic.gif")) {
 					this.oloadingmusic = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("radicalplay.gif")) {
+				if (name.equals("radicalplay.gif")) {
 					this.radicalplay = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("back.gif")) {
+				if (name.equals("back.gif")) {
 					this.back[0] = this.loadimage(abyte0, mediatracker, toolkit);
 					this.back[1] = this.bressed(this.back[0]);
 				}
-				if (s.equals("continue2.gif")) {
+				if (name.equals("continue2.gif")) {
 					this.contin[0] = this.loadimage(abyte0, mediatracker, toolkit);
 					this.contin[1] = this.bressed(this.contin[0]);
 				}
-				if (s.equals("next.gif")) {
+				if (name.equals("next.gif")) {
 					this.next[0] = this.loadimage(abyte0, mediatracker, toolkit);
 					this.next[1] = this.bressed(this.next[0]);
 				}
-				if (s.equals("pgate.gif")) {
+				if (name.equals("pgate.gif")) {
 					this.pgate = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("rpro.gif")) {
+				if (name.equals("rpro.gif")) {
 					this.rpro = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("selectcar.gif")) {
+				if (name.equals("selectcar.gif")) {
 					this.selectcar = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("track1.jpg")) {
+				if (name.equals("track1.jpg")) {
 					this.trackbg[0][0] = this.loadimage(abyte0, mediatracker, toolkit);
 					this.trackbg[1][0] = this.dodgen(this.trackbg[0][0]);
 				}
-				if (s.equals("track2.jpg")) {
+				if (name.equals("track2.jpg")) {
 					this.trackbg[0][1] = this.loadimage(abyte0, mediatracker, toolkit);
 					this.trackbg[1][1] = this.dodgen(this.trackbg[0][1]);
 				}
-				if (s.equals("youlost.gif")) {
+				if (name.equals("youlost.gif")) {
 					this.oyoulost = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("youwon.gif")) {
+				if (name.equals("youwon.gif")) {
 					this.oyouwon = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("0c.gif")) {
+				if (name.equals("0c.gif")) {
 					this.ocntdn[0] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("damage.gif")) {
+				if (name.equals("damage.gif")) {
 					this.odmg = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("power.gif")) {
+				if (name.equals("power.gif")) {
 					this.opwr = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("position.gif")) {
+				if (name.equals("position.gif")) {
 					this.opos = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("wasted.gif")) {
+				if (name.equals("wasted.gif")) {
 					this.owas = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("start1.gif")) {
+				if (name.equals("start1.gif")) {
 					this.ostar[0] = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("start2.gif")) {
+				if (name.equals("start2.gif")) {
 					this.ostar[1] = this.loadimage(abyte0, mediatracker, toolkit);
 					this.star[2] = this.pressed(this.ostar[1]);
 				}
-				if (s.equals("congrad.gif")) {
+				if (name.equals("congrad.gif")) {
 					this.congrd = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("statb.gif")) {
+				if (name.equals("statb.gif")) {
 					this.statb = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("statbo.gif")) {
+				if (name.equals("statbo.gif")) {
 					this.statbo = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("madness.gif")) {
+				if (name.equals("madness.gif")) {
 					this.mdness = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("fixhoop.gif")) {
+				if (name.equals("fixhoop.gif")) {
 					this.fixhoop = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("arrow.gif")) {
+				if (name.equals("arrow.gif")) {
 					this.sarrow = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("stunts.gif")) {
+				if (name.equals("stunts.gif")) {
 					this.stunts = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("racing.gif")) {
+				if (name.equals("racing.gif")) {
 					this.racing = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("wasting.gif")) {
+				if (name.equals("wasting.gif")) {
 					this.wasting = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("plus.gif")) {
+				if (name.equals("plus.gif")) {
 					this.plus = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("space.gif")) {
+				if (name.equals("space.gif")) {
 					this.space = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("arrows.gif")) {
+				if (name.equals("arrows.gif")) {
 					this.arrows = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("chil.gif")) {
+				if (name.equals("chil.gif")) {
 					this.chil = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("ory.gif")) {
+				if (name.equals("ory.gif")) {
 					this.ory = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("kz.gif")) {
+				if (name.equals("kz.gif")) {
 					this.kz = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("kx.gif")) {
+				if (name.equals("kx.gif")) {
 					this.kx = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("kv.gif")) {
+				if (name.equals("kv.gif")) {
 					this.kv = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("kp.gif")) {
+				if (name.equals("kp.gif")) {
 					this.kp = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("km.gif")) {
+				if (name.equals("km.gif")) {
 					this.km = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("kn.gif")) {
+				if (name.equals("kn.gif")) {
 					this.kn = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("kenter.gif")) {
+				if (name.equals("kenter.gif")) {
 					this.kenter = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("nfm.gif")) {
+				if (name.equals("nfm.gif")) {
 					this.nfm = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("options.gif")) {
+				if (name.equals("options.gif")) {
 					this.opti = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("opback.gif")) {
+				if (name.equals("opback.gif")) {
 					this.opback = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("logocars.gif")) {
+				if (name.equals("logocars.gif")) {
 					this.logocars = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("logomadmess.gif")) {
+				if (name.equals("logomadmess.gif")) {
 					this.logomadnes = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("logomadbg.gif")) {
+				if (name.equals("logomadbg.gif")) {
 					this.logomadbg = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("byrd.gif")) {
+				if (name.equals("byrd.gif")) {
 					this.byrd = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("nfmcoms.gif")) {
+				if (name.equals("nfmcoms.gif")) {
 					this.nfmcoms = this.loadimage(abyte0, mediatracker, toolkit);
 				}
-				if (s.equals("nfmcom.gif")) {
+				if (name.equals("nfmcom.gif")) {
 					this.nfmcom = this.loadimage(abyte0, mediatracker, toolkit);
 				}
 				this.dnload += 3;
