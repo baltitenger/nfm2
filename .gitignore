@@ -1,3 +1,5 @@
 /cookies/
 config.xml
 KeySettings.txt
+/out/
+/.gradle/
