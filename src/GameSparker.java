@@ -617,7 +617,7 @@ implements Runnable {
 		xtGraphics xtgraphics = new xtGraphics(medium, this.rd, this);
 		xtgraphics.loaddata(k);
 		Record record = new Record(medium);
-		String[] as = new String[]{"2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge", "leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone", "drmonster", "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad", "offturn", "nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30", "cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp", "halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint", "sideoff", "bsideoff", "uprise", "riseroad", "sroad", "soffroad"};
+		String[] as = new String[]{"trabant", "swift", "fabia", "picasso", "thalia", "astra", "merc", "popo", "brera", "tt", "cts", "eldorado", "charger", "clk500", "240sx", "maybach", "300c", "trafic", "chrysrt8", "bentley", "fer360", "ctsv", "escalade", "porsche", "cien", "ikarus", "stomp", "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad", "offturn", "nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30", "cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp", "halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint", "sideoff", "bsideoff", "uprise", "riseroad", "sroad", "soffroad"};
 		ContO[] aconto = new ContO[as.length];
 		this.loadbase(aconto, medium, trackers, xtgraphics, as);
 		ContO[] aconto1 = new ContO[330];

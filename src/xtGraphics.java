@@ -185,7 +185,7 @@ implements Runnable {
 	int wasted = 0;
 	int laps = 0;
 	int[] dested;
-	String[] names = new String[]{"Tornado Shark", "Formula 7", "Wow Caninaro", "La Vita Crab", "Nimi", "MAX Revenge", "Lead Oxide", "Kool Kat", "Drifter X", "Sword of Justice", "High Rider", "EL KING", "Mighty Eight", "M A S H E E N", "Radical One", "DR Monstaa"};	///duh
+	String[] names = new String[]{"Field Classic", "Abysmal Swift", "Rugged Shell", "Abeille", "White Rook", "Boogeyman", "Landlord", "Po' Po'", "Supreme Brera", "T and T", "Chrome Wreath", "Kooler Kat", "The Colonel", "Milk Benz", "Yakuza", "CEO", "300 Celsius", "TRAFIC JAM", "Mr. Mars", "Iodine Mist", "Grand Jux", "Infernal V", "Cadi-Lacks-Not", "Legendär Pferd", "One Hun'ed", "SCHE-JOULE", "STOMP ROD"};	///duh
 	int dmcnt = 0;
 	boolean dmflk = false;
 	int pwcnt = 0;
@@ -240,8 +240,8 @@ implements Runnable {
 	int flangados = 0;
 	float blackn = 0.0f;
 	float blacknados = 0.0f;
-	final int nTracks = 17;
-	final int nCars = 16;
+	final int nTracks = 40;
+	final int nCars = 27;
 
 	public boolean over(Image image, int i, int j, int k, int l) {
 		int i1 = image.getHeight(this.ob);
@@ -1324,6 +1324,78 @@ implements Runnable {
 		if (i == 17) {
 			this.stracks[16].loadMod(400, 7600, 125, this.sunny, this.macn);
 		}
+		if (i == 18) {
+			this.stracks[17].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 19) {
+			this.stracks[18].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 20) {
+			this.stracks[19].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 21) {
+			this.stracks[20].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 22) {
+			this.stracks[21].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 23) {
+			this.stracks[24].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 24) {
+			this.stracks[23].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 25) {
+			this.stracks[24].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 26) {
+			this.stracks[25].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 27) {
+			this.stracks[26].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 28) {
+			this.stracks[27].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 29) {
+			this.stracks[28].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 30) {
+			this.stracks[29].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 31) {
+			this.stracks[30].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 32) {
+			this.stracks[31].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 33) {
+			this.stracks[32].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 34) {
+			this.stracks[33].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 35) {
+			this.stracks[34].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 36) {
+			this.stracks[35].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 37) {
+			this.stracks[36].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 38) {
+			this.stracks[37].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 39) {
+			this.stracks[38].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 40) {
+			this.stracks[39].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
+		if (i == 41) {
+			this.stracks[40].loadMod(400, 7600, 125, this.sunny, this.macn);
+		}
 		if (flag) {
 			this.runner.stop();
 			this.runner = null;
@@ -2274,7 +2346,7 @@ implements Runnable {
 		this.rd.drawImage(this.fleximg, 0, 0, null);
 		if (this.winner) {
 			if (checkpoints.stage == this.unlocked) {
-				if (checkpoints.stage != 17) {
+				if (checkpoints.stage != nTracks) {
 					this.rd.drawImage(this.congrd, 200, 30, null);
 					this.drawcs(80, "Stage " + checkpoints.stage + " Completed!", 170, 170, 170, 3);
 				} else {
@@ -2331,7 +2403,73 @@ implements Runnable {
 					this.pin = 0;
 					this.sc[0] = 15;
 				}
-				if (checkpoints.stage != 17) {
+				if (checkpoints.stage == 18) {
+					byte0 = 16;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 16;
+				}
+				if (checkpoints.stage == 20) {
+					byte0 = 17;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 17;
+				}
+				if (checkpoints.stage == 22) {
+					byte0 = 18;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 18;
+				}
+				if (checkpoints.stage == 24) {
+					byte0 = 19;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 19;
+				}
+				if (checkpoints.stage == 26) {
+					byte0 = 20;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 20;
+				}
+				if (checkpoints.stage == 28) {
+					byte0 = 21;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 21;
+				}
+				if (checkpoints.stage == 30) {
+					byte0 = 22;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 22;
+				}
+				if (checkpoints.stage == 32) {
+					byte0 = 23;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 23;
+				}
+				if (checkpoints.stage == 34) {
+					byte0 = 24;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 24;
+				}
+				if (checkpoints.stage == 36) {
+					byte0 = 25;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 25;
+				}
+				if (checkpoints.stage == 39) {
+					byte0 = 26;
+					i = 290;
+					this.pin = 0;
+					this.sc[0] = 26;
+				}
+				if (checkpoints.stage != nTracks) {
 					this.rd.setFont(new Font("SansSerif", 1, 13));
 					this.ftm = this.rd.getFontMetrics();
 					if (this.aflk) {
@@ -2462,7 +2600,7 @@ implements Runnable {
 			if (this.loadedt[checkpoints.stage - 1]) {
 				this.stracks[checkpoints.stage - 1].stop();
 			}
-			if (checkpoints.stage == this.unlocked && this.winner && this.unlocked != 17) {
+			if (checkpoints.stage == this.unlocked && this.winner && this.unlocked != nTracks) {
 				++checkpoints.stage;
 				++this.unlocked;
 			}
@@ -2860,7 +2998,7 @@ implements Runnable {
 			this.stages.stop();
 			this.stages.unloadMod();
 		}
-		if (control.right && checkpoints.stage != 17) {
+		if (control.right && checkpoints.stage != nTracks) {
 			if (checkpoints.stage != this.unlocked) {
 				++checkpoints.stage;
 				this.fase = 2;
@@ -3172,8 +3310,8 @@ implements Runnable {
 		this.lowcrash = new Clip[3];
 		this.skid = new Clip[3];
 		this.dustskid = new Clip[3];
-		this.stracks = new RadicalMod[17];
-		this.loadedt = new boolean[17];
+		this.stracks = new RadicalMod[nTracks];
+		this.loadedt = new boolean[nTracks];
 		this.dested = new int[7];
 		this.trklim = (int)(Math.random() * 40.0);
 		this.flkat = (int)(60.0 + 140.0 * Math.random());
@@ -3211,7 +3349,7 @@ implements Runnable {
 		int i = 0;
 		do {
 			this.loadedt[i] = false;
-		} while (++i < 17);
+		} while (++i < nTracks);
 	}
 
 	public void maini(Control control) {
@@ -3722,7 +3860,7 @@ implements Runnable {
 			if (!this.loadedt[i]) continue;
 			this.stracks[i].unloadAll();
 			this.stracks[i] = null;
-		} while (++i < 17);
+		} while (++i < nTracks);
 		i = 0;
 		do {
 			this.engs[0][i].stop();
@@ -3796,7 +3934,7 @@ implements Runnable {
 			if (this.sc[0] != 0) {
 				this.rd.drawImage(this.back[this.pback], 30, 250, null);
 			}
-			if (this.sc[0] != 15) {
+			if (this.sc[0] != nCars - 1) {
 				this.rd.drawImage(this.next[this.pnext], 580, 250, null);
 			}
 			if ((this.sc[0] - 7) * 2 >= this.unlocked) {
@@ -3911,7 +4049,7 @@ implements Runnable {
 		this.drawcs(396, "You can also use Keyboard Arrows and Enter to navigate.", 82, 90, 0, 3);
 		if (control.right) {
 			control.right = false;
-			if (this.sc[0] != 15 && this.flipo == 0) {
+			if (this.sc[0] != (nCars - 1) && this.flipo == 0) {
 				if (this.flatrstart > 1) {
 					this.flatrstart = 0;
 				}
@@ -4153,7 +4291,7 @@ implements Runnable {
 	@Override
 	public void run() {
 		while (this.runtyp != 0) {
-			if (this.runtyp >= 1 && this.runtyp <= 17) {
+			if (this.runtyp >= 1 && this.runtyp <= nTracks) {
 				this.hipnoload(this.runtyp, false);
 			}
 			if (this.runtyp == 176) {
