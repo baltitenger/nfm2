@@ -46,9 +46,9 @@ implements Runnable {
 	int[] sc;
 	int[] xstart = new int[]{0, -350, 350, 0, -350, 350, 0};
 	int[] zstart = new int[]{-760, -380, -380, 0, 380, 380, 760};
-	float[] proba = new float[]{0.6f, 0.7f, 0.4f, 0.3f, 0.8f, 0.0f, 0.3f, 0.3f, 0.3f, 0.1f, 0.1f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f};
-	float[] dishandle = new float[]{0.65f, 0.6f, 0.55f, 0.77f, 0.62f, 0.9f, 0.6f, 0.72f, 0.45f, 0.8f, 0.95f, 0.4f, 0.87f, 0.42f, 1.0f, 0.95f};
-	float[] outdam = new float[]{0.67f, 0.35f, 0.8f, 0.5f, 0.42f, 0.76f, 0.82f, 0.76f, 0.72f, 0.62f, 0.79f, 0.95f, 0.77f, 1.0f, 0.85f, 1.0f};
+	float[] proba = new float[]{0.6f, 0.7f, 0.4f, 0.3f, 0.8f, 0.0f, 0.3f, 0.3f, 0.3f, 0.1f, 0.1f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f};	///The chance of a car appearing on a stage
+	float[] dishandle = new float[]{0.65f, 0.6f, 0.55f, 0.77f, 0.62f, 0.9f, 0.6f, 0.72f, 0.45f, 0.8f, 0.95f, 0.4f, 0.87f, 0.42f, 1.0f, 0.95f};	///Handling stat (statbar in selection menu, only visual)
+	float[] outdam = new float[]{0.67f, 0.35f, 0.8f, 0.5f, 0.42f, 0.76f, 0.82f, 0.76f, 0.72f, 0.62f, 0.79f, 0.95f, 0.77f, 1.0f, 0.85f, 1.0f};	///Strength stat (statbar in selection menu, only visula)
 	boolean holdit = false;
 	int holdcnt = 0;
 	boolean winner = false;
@@ -143,7 +143,7 @@ implements Runnable {
 	int gocnt = 0;
 	Clip[][] engs;
 	boolean[] pengs;
-	int[] enginsignature = new int[]{0, 1, 2, 1, 0, 3, 2, 2, 1, 0, 3, 4, 1, 4, 0, 3};
+	int[] enginsignature = new int[]{0, 1, 2, 1, 0, 3, 2, 2, 1, 0, 3, 4, 1, 4, 0, 3};	///Engine sound style (0 = Normal, 1 = V8, 2 = Retro, 3 = Power, 4 = Diesel)
 	Clip[] air;
 	boolean aird = false;
 	boolean grrd = false;
@@ -185,7 +185,7 @@ implements Runnable {
 	int wasted = 0;
 	int laps = 0;
 	int[] dested;
-	String[] names = new String[]{"Tornado Shark", "Formula 7", "Wow Caninaro", "La Vita Crab", "Nimi", "MAX Revenge", "Lead Oxide", "Kool Kat", "Drifter X", "Sword of Justice", "High Rider", "EL KING", "Mighty Eight", "M A S H E E N", "Radical One", "DR Monstaa"};
+	String[] names = new String[]{"Tornado Shark", "Formula 7", "Wow Caninaro", "La Vita Crab", "Nimi", "MAX Revenge", "Lead Oxide", "Kool Kat", "Drifter X", "Sword of Justice", "High Rider", "EL KING", "Mighty Eight", "M A S H E E N", "Radical One", "DR Monstaa"};	///duh
 	int dmcnt = 0;
 	boolean dmflk = false;
 	int pwcnt = 0;
@@ -197,7 +197,7 @@ implements Runnable {
 	String asay = "";
 	int auscnt = 45;
 	boolean aflk = false;
-	int[] sndsize = new int[]{106, 76, 56, 116, 92, 208, 70, 80, 152, 102, 27, 65, 52, 30, 151, 129, 70};
+	int[] sndsize = new int[]{106, 76, 56, 116, 92, 208, 70, 80, 152, 102, 27, 65, 52, 30, 151, 129, 70};	///Music file size (visual only)
 	Image hello;
 	Image sign;
 	Image loadbar;
@@ -210,7 +210,7 @@ implements Runnable {
 	int[] trkx = new int[]{0, 670};
 	int trkl = 0;
 	int trklim;
-	float[] hipno = new float[]{1.0f, 1.0f, 3.0f, 1.0f, 1.2f, 1.0f, 1.7f, 1.0f, 1.0f, 8.0f, 1.5f, 2.0f, 1.2f, 10.0f, 1.8f, 1.4f, 2.0f};
+	float[] hipno = new float[]{1.0f, 1.0f, 3.0f, 1.0f, 1.2f, 1.0f, 1.7f, 1.0f, 1.0f, 8.0f, 1.5f, 2.0f, 1.2f, 10.0f, 1.8f, 1.4f, 2.0f};	///Every stage should have one (no clue what it is)
 	int flkat;
 	int movly;
 	int xdu = 272;
@@ -240,6 +240,8 @@ implements Runnable {
 	int flangados = 0;
 	float blackn = 0.0f;
 	float blacknados = 0.0f;
+	final int nTracks = 17;
+	final int nCars = 16;
 
 	public boolean over(Image image, int i, int j, int k, int l) {
 		int i1 = image.getHeight(this.ob);

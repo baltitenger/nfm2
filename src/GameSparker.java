@@ -194,8 +194,7 @@ implements Runnable {
 		this.u = new Control[7];
 	}
 
-	public void loadbase(ContO[] aconto, Medium medium, Trackers trackers, xtGraphics xtgraphics) {
-		String[] as = new String[]{"2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge", "leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone", "drmonster", "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad", "offturn", "nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30", "cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp", "halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint", "sideoff", "bsideoff", "uprise", "riseroad", "sroad", "soffroad"};
+	public void loadbase(ContO aconto[], Medium medium, Trackers trackers, xtGraphics xtgraphics, String as[]) {
 		xtgraphics.dnload += 6;
 		try {
 			File file = new File("data/models.radq");
@@ -210,7 +209,7 @@ implements Runnable {
 				do {
 					if (!zipentry.getName().startsWith(as[j])) continue;
 					i = j;
-				} while (++j < 55);
+				} while (++j < as.length);
 				byte[] abyte0 = new byte[j];
 				int k = 0;
 				for (j = (int)zipentry.getSize(); j > 0; j -= l) {
@@ -363,7 +362,7 @@ implements Runnable {
 				}
 				if (s1.startsWith("set")) {
 					int k1 = this.getint("set", s1, 0);
-					aconto[this.nob] = new ContO(aconto1[k1 += 6], this.getint("set", s1, 1), medium.ground - aconto1[k1].grat, this.getint("set", s1, 2), this.getint("set", s1, 3));
+					aconto[this.nob] = new ContO(aconto1[k1 += xtgraphics.nCars - 10], this.getint("set", s1, 1), medium.ground - aconto1[k1].grat, this.getint("set", s1, 2), this.getint("set", s1, 3));
 					if (s1.indexOf(")p") != -1) {
 						checkpoints.x[checkpoints.n] = this.getint("chk", s1, 1);
 						checkpoints.z[checkpoints.n] = this.getint("chk", s1, 2);
@@ -391,7 +390,7 @@ implements Runnable {
 				}
 				if (s1.startsWith("chk")) {
 					int l1 = this.getint("chk", s1, 0);
-					aconto[this.nob] = new ContO(aconto1[l1 += 6], this.getint("chk", s1, 1), medium.ground - aconto1[l1].grat, this.getint("chk", s1, 2), this.getint("chk", s1, 3));
+					aconto[this.nob] = new ContO(aconto1[l1 += xtgraphics.nCars - 10], this.getint("chk", s1, 1), medium.ground - aconto1[l1].grat, this.getint("chk", s1, 2), this.getint("chk", s1, 3));
 					checkpoints.x[checkpoints.n] = this.getint("chk", s1, 1);
 					checkpoints.z[checkpoints.n] = this.getint("chk", s1, 2);
 					checkpoints.y[checkpoints.n] = medium.ground - aconto1[l1].grat;
@@ -403,7 +402,7 @@ implements Runnable {
 				}
 				if (s1.startsWith("fix")) {
 					int i2 = this.getint("fix", s1, 0);
-					aconto[this.nob] = new ContO(aconto1[i2 += 6], this.getint("fix", s1, 1), this.getint("fix", s1, 3), this.getint("fix", s1, 2), this.getint("fix", s1, 4));
+					aconto[this.nob] = new ContO(aconto1[i2 += xtgraphics.nCars - 10], this.getint("fix", s1, 1), this.getint("fix", s1, 3), this.getint("fix", s1, 2), this.getint("fix", s1, 4));
 					checkpoints.fx[checkpoints.fn] = this.getint("fix", s1, 1);
 					checkpoints.fz[checkpoints.fn] = this.getint("fix", s1, 2);
 					checkpoints.fy[checkpoints.fn] = this.getint("fix", s1, 3);
@@ -430,7 +429,7 @@ implements Runnable {
 					i = j3 = this.getint("maxr", s1, 1);
 					int j4 = this.getint("maxr", s1, 2);
 					for (int j5 = 0; j5 < j2; ++j5) {
-						aconto[this.nob] = new ContO(aconto1[45], j3, medium.ground - aconto1[45].grat, j5 * 4800 + j4, 0);
+						aconto[this.nob] = new ContO(aconto1[45 + (xtgraphics.nCars - 16)], j3, medium.ground - aconto1[45].grat, j5 * 4800 + j4, 0);
 						++this.nob;
 					}
 					trackers.y[trackers.nt] = -5000;
@@ -450,7 +449,7 @@ implements Runnable {
 					j = k3 = this.getint("maxl", s1, 1);
 					int k4 = this.getint("maxl", s1, 2);
 					for (int k5 = 0; k5 < k2; ++k5) {
-						aconto[this.nob] = new ContO(aconto1[45], k3, medium.ground - aconto1[45].grat, k5 * 4800 + k4, 0);
+						aconto[this.nob] = new ContO(aconto1[45 + (xtgraphics.nCars - 16)], k3, medium.ground - aconto1[45].grat, k5 * 4800 + k4, 0);
 						++this.nob;
 					}
 					trackers.y[trackers.nt] = -5000;
@@ -470,7 +469,7 @@ implements Runnable {
 					k = l3 = this.getint("maxt", s1, 1);
 					int l4 = this.getint("maxt", s1, 2);
 					for (int l5 = 0; l5 < l2; ++l5) {
-						aconto[this.nob] = new ContO(aconto1[45], l5 * 4800 + l4, medium.ground - aconto1[45].grat, l3, 90);
+						aconto[this.nob] = new ContO(aconto1[45 + (xtgraphics.nCars - 16)], l5 * 4800 + l4, medium.ground - aconto1[45].grat, l3, 90);
 						++this.nob;
 					}
 					trackers.y[trackers.nt] = -5000;
@@ -489,7 +488,7 @@ implements Runnable {
 				l = i4 = this.getint("maxb", s1, 1);
 				int i5 = this.getint("maxb", s1, 2);
 				for (int i6 = 0; i6 < i3; ++i6) {
-					aconto[this.nob] = new ContO(aconto1[45], i6 * 4800 + i5, medium.ground - aconto1[45].grat, i4, 90);
+					aconto[this.nob] = new ContO(aconto1[45 + (xtgraphics.nCars - 16)], i6 * 4800 + i5, medium.ground - aconto1[45].grat, i4, 90);
 					++this.nob;
 				}
 				trackers.y[trackers.nt] = -5000;
@@ -620,8 +619,9 @@ implements Runnable {
 		xtGraphics xtgraphics = new xtGraphics(medium, this.rd, this);
 		xtgraphics.loaddata(k);
 		Record record = new Record(medium);
-		ContO[] aconto = new ContO[55];
-		this.loadbase(aconto, medium, trackers, xtgraphics);
+		String[] as = new String[]{"2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge", "leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone", "drmonster", "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad", "offturn", "nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30", "cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp", "halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint", "sideoff", "bsideoff", "uprise", "riseroad", "sroad", "soffroad"};
+		ContO[] aconto = new ContO[as.length];
+		this.loadbase(aconto, medium, trackers, xtgraphics, as);
 		ContO[] aconto1 = new ContO[330];
 		Madness[] amadness = new Madness[7];
 		int l = 0;
@@ -633,12 +633,12 @@ implements Runnable {
 		float f = 35.0f;
 		int i1 = 80;
 		l = this.readcookie("unlocked");
-		if (l >= 1 && l <= 17) {
+		if (l >= 1 && l <= xtgraphics.nTracks) {
 			xtgraphics.unlocked = l;
-			checkpoints.stage = xtgraphics.unlocked != 17 ? xtgraphics.unlocked : (int)(Math.random() * 17.0) + 1;
+			checkpoints.stage = xtgraphics.unlocked != xtgraphics.nTracks ? xtgraphics.unlocked : (int)(Math.random() * (double)xtgraphics.nTracks) + 1;
 			xtgraphics.opselect = 0;
 		}
-		if ((l = this.readcookie("usercar")) >= 0 && l <= 15) {
+		if ((l = this.readcookie("usercar")) >= 0 && l <= xtgraphics.nCars - 1) {
 			xtgraphics.sc[0] = l;
 		}
 		if ((l = this.readcookie("gameprfact")) != -1) {
@@ -744,7 +744,7 @@ implements Runnable {
 			if (xtgraphics.fase == -5) {
 				xtgraphics.finish(checkpoints, aconto, this.u[0]);
 				if (flag) {
-					if (checkpoints.stage == xtgraphics.unlocked && xtgraphics.winner && xtgraphics.unlocked != 17) {
+					if (checkpoints.stage == xtgraphics.unlocked && xtgraphics.winner && xtgraphics.unlocked != xtgraphics.nTracks) {
 						this.savecookie("unlocked", "" + (xtgraphics.unlocked + 1));
 					}
 					this.savecookie("gameprfact", "" + (int)f);
@@ -752,7 +752,7 @@ implements Runnable {
 					flag = false;
 				}
 				xtgraphics.ctachm(this.xm, this.ym, this.mouses, this.u[0]);
-				if (checkpoints.stage == 17 && xtgraphics.winner) {
+				if (checkpoints.stage == xtgraphics.nTracks && xtgraphics.winner) {
 					this.catchlink(1);
 				}
 				if (this.mouses == 2) {
@@ -1389,7 +1389,7 @@ implements Runnable {
 				if (k1 >= 0) {
 					xtgraphics.fleximage(this.offImage, k1, checkpoints.stage);
 				}
-				if (checkpoints.stage == 17 && ++k1 == 10) {
+				if (checkpoints.stage == xtgraphics.nTracks && ++k1 == 10) {
 					xtgraphics.fase = -5;
 				}
 				if (k1 == 12) {
