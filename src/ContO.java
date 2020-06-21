@@ -188,6 +188,9 @@ public class ContO {
 		int i = 0;
 		float f = 1.0f;
 		float f1 = 1.0f;
+		float af[] = {
+				1.0F, 1.0F, 1.0F
+		};
 		int[] ai = new int[100];
 		int[] ai1 = new int[100];
 		int[] ai2 = new int[100];
@@ -234,15 +237,17 @@ public class ContO {
 					if (s1.startsWith("lightB")) {
 						byte0 = 2;
 					}
-					if (s1.startsWith("p")) {
-						ai[i] = (int)((float)this.getvalue("p", s1, 0) * f * f1);
-						ai1[i] = (int)((float)this.getvalue("p", s1, 1) * f);
-						ai2[i] = (int)((float)this.getvalue("p", s1, 2) * f);
+					if(s1.startsWith("p"))
+					{
+						ai[i] = (int)(((float)getvalue("p", s1, 0) * f * f1) * af[0]);
+						ai1[i] = (int)(((float)getvalue("p", s1, 1) * f) * af[1]);
+						ai2[i] = (int)(((float)getvalue("p", s1, 2) * f) * af[2]);
 						int j1 = (int)Math.sqrt(ai[i] * ai[i] + ai1[i] * ai1[i] + ai2[i] * ai2[i]);
-						if (j1 > this.maxR) {
-							this.maxR = j1;
+						if(j1 > maxR)
+						{
+							maxR = j1;
 						}
-						++i;
+						i++;
 					}
 				}
 				if (s1.startsWith("</p>")) {
@@ -253,12 +258,13 @@ public class ContO {
 				if (s1.startsWith("rims")) {
 					wheels.setrims(this.getvalue("rims", s1, 0), this.getvalue("rims", s1, 1), this.getvalue("rims", s1, 2), this.getvalue("rims", s1, 3), this.getvalue("rims", s1, 4));
 				}
-				if (s1.startsWith("w")) {
-					this.keyx[j] = (int)((float)this.getvalue("w", s1, 0) * f);
-					this.keyz[j] = (int)((float)this.getvalue("w", s1, 2) * f);
-					++j;
-					wheels.make(this.m, this.t, this.p, this.npl, (int)((float)this.getvalue("w", s1, 0) * f * f1), (int)((float)this.getvalue("w", s1, 1) * f), (int)((float)this.getvalue("w", s1, 2) * f), this.getvalue("w", s1, 3), (int)((float)this.getvalue("w", s1, 4) * f * f1), (int)((float)this.getvalue("w", s1, 5) * f), i1);
-					this.npl += 15;
+				if(s1.startsWith("w"))
+				{
+					keyx[j] = (int)((float)getvalue("w", s1, 0) * f * af[0]);
+					keyz[j] = (int)((float)getvalue("w", s1, 2) * f * af[2]);
+					j++;
+					wheels.make(m, t, p, npl, (int)((float)getvalue("w", s1, 0) * f * f1 * af[0]), (int)((float)getvalue("w", s1, 1) * f * af[1]), (int)((float)getvalue("w", s1, 2) * f * af[2]), getvalue("w", s1, 3), (int)((float)getvalue("w", s1, 4) * f * f1), (int)((int)getvalue("w", s1, 5) * f), i1);
+					npl += 15;
 				}
 				if (s1.startsWith("tracks")) {
 					int k1 = this.getvalue("tracks", s1, 0);
@@ -365,6 +371,18 @@ public class ContO {
 				}
 				if (s1.startsWith("iwid")) {
 					f1 = (float)this.getvalue("iwid", s1, 0) / 100.0f;
+				}
+				if(s1.startsWith("ScaleX"))
+				{
+					af[0] = (float)getvalue("ScaleX", s1, 0) / 100F;
+				}
+				if(s1.startsWith("ScaleY"))
+				{
+					af[1] = (float)getvalue("ScaleY", s1, 0) / 100F;
+				}
+				if(s1.startsWith("ScaleZ"))
+				{
+					af[2] = (float)getvalue("ScaleZ", s1, 0) / 100F;
 				}
 				if (!s1.startsWith("gwgr")) continue;
 				i1 = this.getvalue("gwgr", s1, 0);
