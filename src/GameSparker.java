@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -43,26 +44,26 @@ implements Runnable {
 	int nob = 0;
 	int notb = 0;
 	int view = 0;
-	Set<Integer> upKeys = new HashSet<Integer>();
-	Set<Integer> downKeys = new HashSet<Integer>();
-	Set<Integer> rightKeys = new HashSet<Integer>();
-	Set<Integer> leftKeys = new HashSet<Integer>();
-	Set<Integer> handbKeys = new HashSet<Integer>();
-	Set<Integer> xKeys = new HashSet<Integer>();
-	Set<Integer> zKeys = new HashSet<Integer>();
-	Set<Integer> enterKeys = new HashSet<Integer>();
-	Set<Integer> arraceKeys = new HashSet<Integer>();
-	Set<Integer> mutemKeys = new HashSet<Integer>();
-	Set<Integer> mutesKeys = new HashSet<Integer>();
-	Set<Integer> viewKeys = new HashSet<Integer>();
-	Set<Integer> upPressedKeys = new HashSet<Integer>();
-	Set<Integer> downPressedKeys = new HashSet<Integer>();
-	Set<Integer> rightPressedKeys = new HashSet<Integer>();
-	Set<Integer> leftPressedKeys = new HashSet<Integer>();
-	Set<Integer> handbPressedKeys = new HashSet<Integer>();
-	Set<Integer> xPressedKeys = new HashSet<Integer>();
-	Set<Integer> zPressedKeys = new HashSet<Integer>();
-	Set<Integer> enterPressedKeys = new HashSet<Integer>();
+	Set<Integer> upKeys           = new HashSet<>();
+	Set<Integer> downKeys         = new HashSet<>();
+	Set<Integer> rightKeys        = new HashSet<>();
+	Set<Integer> leftKeys         = new HashSet<>();
+	Set<Integer> handbKeys        = new HashSet<>();
+	Set<Integer> xKeys            = new HashSet<>();
+	Set<Integer> zKeys            = new HashSet<>();
+	Set<Integer> enterKeys        = new HashSet<>();
+	Set<Integer> arraceKeys       = new HashSet<>();
+	Set<Integer> mutemKeys        = new HashSet<>();
+	Set<Integer> mutesKeys        = new HashSet<>();
+	Set<Integer> viewKeys         = new HashSet<>();
+	Set<Integer> upPressedKeys    = new HashSet<>();
+	Set<Integer> downPressedKeys  = new HashSet<>();
+	Set<Integer> rightPressedKeys = new HashSet<>();
+	Set<Integer> leftPressedKeys  = new HashSet<>();
+	Set<Integer> handbPressedKeys = new HashSet<>();
+	Set<Integer> xPressedKeys     = new HashSet<>();
+	Set<Integer> zPressedKeys     = new HashSet<>();
+	Set<Integer> enterPressedKeys = new HashSet<>();
 
 	@Override
 	public boolean keyDown(Event event, int i) {
@@ -203,20 +204,17 @@ implements Runnable {
 			ZipEntry zipentry = zipinputstream.getNextEntry();
 			Object obj = null;
 			while (zipentry != null) {
-				int l;
-				int i = 0;
-				int j = 0;
-				do {
-					if (!zipentry.getName().startsWith(as[j])) continue;
-					i = j;
-				} while (++j < as.length);
-				byte[] abyte0 = new byte[j];
-				int k = 0;
-				for (j = (int)zipentry.getSize(); j > 0; j -= l) {
-					l = zipinputstream.read(abyte0, k, j);
-					k += l;
+			    String name = zipentry.getName();
+				int id = Arrays.asList(as).indexOf(name.substring(0, name.length()-4));
+				int size = (int)zipentry.getSize();
+				byte[] buf = new byte[size];
+				int offset = 0;
+				while (size > 0) {
+				    int read = zipinputstream.read(buf, offset, size);
+				    offset += read;
+				    size -= read;
 				}
-				aconto[i] = new ContO(abyte0, medium, trackers);
+				aconto[id] = new ContO(buf, medium, trackers);
 				++xtgraphics.dnload;
 				zipentry = zipinputstream.getNextEntry();
 			}
