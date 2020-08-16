@@ -185,7 +185,7 @@ implements Runnable {
 	int wasted = 0;
 	int laps = 0;
 	int[] dested;
-	String[] names = new String[]{"Field Classic", "Abysmal Swift", "Rugged Shell", "Abeille", "White Rook", "Boogeyman", "Landlord", "Po' Po'", "Supreme Brera", "T and T", "Chrome Wreath", "Kooler Kat", "The Colonel", "Milk Benz", "Yakuza", "CEO", "300 Celsius", "TRAFIC JAM", "Mr. Mars", "Iodine Mist", "Grand Jux", "Infernal V", "Cadi-Lacks-Not", "Legendär Pferd", "One Hun'ed", "SCHE-JOULE", "STOMP ROD"};	///duh
+	String[] names = new String[]{"Field Classic", "Abysmal Swift", "Rugged Shell", "Abeille", "White Rook", "Boogeyman", "Landlord", "Po' Po'", "Supreme Brera", "T and T", "Chrome Wreath", "Kooler Kat", "The Colonel", "Benzole", "Yakuza", "CEO", "300 Celsius", "TRAFIC JAM", "Mr. Mars", "Iodine Mist", "Grand Jux", "Hell Hound", "Cadi-Lacks-Not", "Legendär Pferd", "One Hun'ed", "SCHE-JOULE", "STOMP ROD"};	///duh
 	int dmcnt = 0;
 	boolean dmflk = false;
 	int pwcnt = 0;
