@@ -917,7 +917,7 @@ public class Madness {
 				this.cxz += 360;
 			}
 			if (Math.abs(this.mxz - this.cxz) < 30) {
-				this.cxz = (int)((float)this.cxz + (float)(this.mxz - this.cxz) / 4.0f);
+				this.cxz = (int)((float)this.cxz + (float)(this.mxz - this.cxz) / 2.0f);
 			} else {
 				if (this.cxz > this.mxz) {
 					this.cxz -= 10;

@@ -668,10 +668,7 @@ public class Medium {
 
 	public void follow(ContO conto, int i, int j) {
 		this.zy = 10;
-		int k = 2 + Math.abs(this.bcxz) / 4;
-		if (k > 20) {
-			k = 20;
-		}
+		int k = 2 + Math.abs(this.bcxz) * 4 ; /// k = speed at which the camera rotates while pressing "X" or "Z"
 		if (j != 0) {
 			if (j == 1) {
 				if (this.bcxz < 180) {

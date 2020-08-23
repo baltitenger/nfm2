@@ -622,225 +622,225 @@ implements Runnable {
 		ai[6] = c + 35;
 		ai2[6] = c1 + 50;
 		k = 0;
-		if (!flag) {
-			int c2 = 0;
-			if (checkpoints.x[i] - checkpoints.opx[0] >= 0) {
-				c2 = 180;
-			}
-			k = (int)((double)(90 + c2) + Math.atan((double)(checkpoints.z[i] - checkpoints.opz[0]) / (double)(checkpoints.x[i] - checkpoints.opx[0])) / (Math.PI / 180));
-		} else {
-			int l = 0;
-			int k1 = -1;
-			boolean flag1 = false;
-			int l2 = 1;
-			do {
-				if (this.py(checkpoints.opx[0] / 100, checkpoints.opx[l2] / 100, checkpoints.opz[0] / 100, checkpoints.opz[l2] / 100) >= k1 && k1 != -1 || flag1 && checkpoints.onscreen[l2] == 0 || checkpoints.dested[l2] != 0) continue;
-				l = l2;
-				k1 = this.py(checkpoints.opx[0] / 100, checkpoints.opx[l2] / 100, checkpoints.opz[0] / 100, checkpoints.opz[l2] / 100);
-				if (checkpoints.onscreen[l2] == 0) continue;
-				flag1 = true;
-			} while (++l2 < 7);
-			l2 = 0;
-			if (checkpoints.opx[l] - checkpoints.opx[0] >= 0) {
-				l2 = 180;
-			}
-			k = (int)((double)(90 + l2) + Math.atan((double)(checkpoints.opz[l] - checkpoints.opz[0]) / (double)(checkpoints.opx[l] - checkpoints.opx[0])) / (Math.PI / 180));
-			this.drawcs(13, "[								]", 76, 67, 240, 0);
-			this.drawcs(13, this.names[this.sc[l]], 0, 0, 0, 0);
-		}
-		k += this.m.xz;
-		while (k < 0) {
-			k += 360;
-		}
-		while (k > 180) {
-			k -= 360;
-		}
-		if (!flag) {
-			if (k > 130) {
-				k = 130;
-			}
-			if (k < -130) {
-				k = -130;
-			}
-		} else {
-			if (k > 100) {
-				k = 100;
-			}
-			if (k < -100) {
-				k = -100;
-			}
-		}
-		if (Math.abs(this.ana - k) < 180) {
-			this.ana = Math.abs(this.ana - k) < 10 ? k : (this.ana < k ? (this.ana += 10) : (this.ana -= 10));
-		} else {
-			if (k < 0) {
-				this.ana += 15;
-				if (this.ana > 180) {
-					this.ana -= 360;
+			if (!flag) {
+				int c2 = 0;
+				if (checkpoints.x[i] - checkpoints.opx[0] >= 0) {
+					c2 = 180;
 				}
-			}
-			if (k > 0) {
-				this.ana -= 15;
-				if (this.ana < -180) {
-					this.ana += 360;
-				}
-			}
-		}
-		this.rot(ai, ai2, c, c1, this.ana, 7);
-		k = Math.abs(this.ana);
-		if (!flag) {
-			if (k > 7 || j > 0 || j == -2 || this.cntan != 0) {
-				int l1;
-				int i1 = 0;
+				k = (int) ((double) (90 + c2) + Math.atan((double) (checkpoints.z[i] - checkpoints.opz[0]) / (double) (checkpoints.x[i] - checkpoints.opx[0])) / (Math.PI / 180));
+			} else {
+				int l = 0;
+				int k1 = -1;
+				boolean flag1 = false;
+				int l2 = 1;
 				do {
-					ai[i1] = this.xs(ai[i1], ai2[i1]);
-					ai1[i1] = this.ys(ai1[i1], ai2[i1]);
-				} while (++i1 < 7);
-				i1 = (int)(190.0f + 190.0f * ((float)this.m.snap[0] / 100.0f));
-				if (i1 > 255) {
-					i1 = 255;
+					if (this.py(checkpoints.opx[0] / 100, checkpoints.opx[l2] / 100, checkpoints.opz[0] / 100, checkpoints.opz[l2] / 100) >= k1 && k1 != -1 || flag1 && checkpoints.onscreen[l2] == 0 || checkpoints.dested[l2] != 0)
+						continue;
+					l = l2;
+					k1 = this.py(checkpoints.opx[0] / 100, checkpoints.opx[l2] / 100, checkpoints.opz[0] / 100, checkpoints.opz[l2] / 100);
+					if (checkpoints.onscreen[l2] == 0) continue;
+					flag1 = true;
+				} while (++l2 < 7);
+				l2 = 0;
+				if (checkpoints.opx[l] - checkpoints.opx[0] >= 0) {
+					l2 = 180;
 				}
-				if (i1 < 0) {
-					i1 = 0;
+				k = (int) ((double) (90 + l2) + Math.atan((double) (checkpoints.opz[l] - checkpoints.opz[0]) / (double) (checkpoints.opx[l] - checkpoints.opx[0])) / (Math.PI / 180));
+				this.drawcs(13, "[								]", 76, 67, 240, 0);
+				this.drawcs(13, this.names[this.sc[l]], 0, 0, 0, 0);
+			}
+			k += this.m.xz;
+			while (k < 0) {
+				k += 360;
+			}
+			while (k > 180) {
+				k -= 360;
+			}
+			if (!flag) {
+				if (k > 130) {
+					k = 130;
 				}
-				if ((l1 = (int)(255.0f + 255.0f * ((float)this.m.snap[1] / 100.0f))) > 255) {
-					l1 = 255;
+				if (k < -130) {
+					k = -130;
 				}
-				if (l1 < 0) {
-					l1 = 0;
+			} else {
+				if (k > 100) {
+					k = 100;
 				}
-				int j2 = 0;
-				if (j <= 0) {
-					if (k <= 45 && j != -2 && this.cntan == 0) {
-						i1 = (i1 * k + this.m.csky[0] * (45 - k)) / 45;
-						l1 = (l1 * k + this.m.csky[1] * (45 - k)) / 45;
-						j2 = (j2 * k + this.m.csky[2] * (45 - k)) / 45;
+				if (k < -100) {
+					k = -100;
+				}
+			}
+			if (Math.abs(this.ana - k) < 180) {
+				this.ana = Math.abs(this.ana - k) < 10 ? k : (this.ana < k ? (this.ana += 10) : (this.ana -= 10));
+			} else {
+				if (k < 0) {
+					this.ana += 15;
+					if (this.ana > 180) {
+						this.ana -= 360;
 					}
-					if (k >= 90) {
-						int i3 = (int)(255.0f + 255.0f * ((float)this.m.snap[0] / 100.0f));
-						if (i3 > 255) {
-							i3 = 255;
-						}
-						if (i3 < 0) {
-							i3 = 0;
-						}
-						if ((i1 = (i1 * (140 - k) + i3 * (k - 90)) / 50) > 255) {
-							i1 = 255;
-						}
+				}
+				if (k > 0) {
+					this.ana -= 15;
+					if (this.ana < -180) {
+						this.ana += 360;
 					}
-				} else if (this.flk) {
-					i1 = (int)(255.0f + 255.0f * ((float)this.m.snap[0] / 100.0f));
+				}
+			}
+			this.rot(ai, ai2, c, c1, this.ana, 7);
+			k = Math.abs(this.ana);
+			if (!flag) {
+				if (k > 7 || j > 0 || j == -2 || this.cntan != 0) {
+					int l1;
+					int i1 = 0;
+					do {
+						ai[i1] = this.xs(ai[i1], ai2[i1]);
+						ai1[i1] = this.ys(ai1[i1], ai2[i1]);
+					} while (++i1 < 7);
+					i1 = (int) (190.0f + 190.0f * ((float) this.m.snap[0] / 100.0f));
 					if (i1 > 255) {
 						i1 = 255;
 					}
 					if (i1 < 0) {
 						i1 = 0;
 					}
-					this.flk = false;
-				} else {
-					i1 = (int)(255.0f + 255.0f * ((float)this.m.snap[0] / 100.0f));
-					if (i1 > 255) {
-						i1 = 255;
-					}
-					if (i1 < 0) {
-						i1 = 0;
-					}
-					if ((l1 = (int)(220.0f + 220.0f * ((float)this.m.snap[1] / 100.0f))) > 255) {
+					if ((l1 = (int) (255.0f + 255.0f * ((float) this.m.snap[1] / 100.0f))) > 255) {
 						l1 = 255;
 					}
 					if (l1 < 0) {
 						l1 = 0;
 					}
-					this.flk = true;
-				}
-				this.rd.setColor(new Color(i1, l1, j2));
-				this.rd.fillPolygon(ai, ai1, 7);
-				i1 = (int)(115.0f + 115.0f * ((float)this.m.snap[0] / 100.0f));
-				if (i1 > 255) {
-					i1 = 255;
-				}
-				if (i1 < 0) {
-					i1 = 0;
-				}
-				if ((l1 = (int)(170.0f + 170.0f * ((float)this.m.snap[1] / 100.0f))) > 255) {
-					l1 = 255;
-				}
-				if (l1 < 0) {
-					l1 = 0;
-				}
-				j2 = 0;
-				if (j <= 0) {
-					if (k <= 45 && j != -2 && this.cntan == 0) {
-						i1 = (i1 * k + this.m.csky[0] * (45 - k)) / 45;
-						l1 = (l1 * k + this.m.csky[1] * (45 - k)) / 45;
-						j2 = (j2 * k + this.m.csky[2] * (45 - k)) / 45;
+					int j2 = 0;
+					if (j <= 0) {
+						if (k <= 45 && j != -2 && this.cntan == 0) {
+							i1 = (i1 * k + this.m.csky[0] * (45 - k)) / 45;
+							l1 = (l1 * k + this.m.csky[1] * (45 - k)) / 45;
+							j2 = (j2 * k + this.m.csky[2] * (45 - k)) / 45;
+						}
+						if (k >= 90) {
+							int i3 = (int) (255.0f + 255.0f * ((float) this.m.snap[0] / 100.0f));
+							if (i3 > 255) {
+								i3 = 255;
+							}
+							if (i3 < 0) {
+								i3 = 0;
+							}
+							if ((i1 = (i1 * (140 - k) + i3 * (k - 90)) / 50) > 255) {
+								i1 = 255;
+							}
+						}
+					} else if (this.flk) {
+						i1 = (int) (255.0f + 255.0f * ((float) this.m.snap[0] / 100.0f));
+						if (i1 > 255) {
+							i1 = 255;
+						}
+						if (i1 < 0) {
+							i1 = 0;
+						}
+						this.flk = false;
+					} else {
+						i1 = (int) (255.0f + 255.0f * ((float) this.m.snap[0] / 100.0f));
+						if (i1 > 255) {
+							i1 = 255;
+						}
+						if (i1 < 0) {
+							i1 = 0;
+						}
+						if ((l1 = (int) (220.0f + 220.0f * ((float) this.m.snap[1] / 100.0f))) > 255) {
+							l1 = 255;
+						}
+						if (l1 < 0) {
+							l1 = 0;
+						}
+						this.flk = true;
 					}
-				} else if (this.flk) {
-					i1 = (int)(255.0f + 255.0f * ((float)this.m.snap[0] / 100.0f));
+					this.rd.setColor(new Color(i1, l1, j2));
+					this.rd.fillPolygon(ai, ai1, 7);
+					i1 = (int) (115.0f + 115.0f * ((float) this.m.snap[0] / 100.0f));
 					if (i1 > 255) {
 						i1 = 255;
 					}
 					if (i1 < 0) {
 						i1 = 0;
 					}
-					l1 = 0;
+					if ((l1 = (int) (170.0f + 170.0f * ((float) this.m.snap[1] / 100.0f))) > 255) {
+						l1 = 255;
+					}
+					if (l1 < 0) {
+						l1 = 0;
+					}
+					j2 = 0;
+					if (j <= 0) {
+						if (k <= 45 && j != -2 && this.cntan == 0) {
+							i1 = (i1 * k + this.m.csky[0] * (45 - k)) / 45;
+							l1 = (l1 * k + this.m.csky[1] * (45 - k)) / 45;
+							j2 = (j2 * k + this.m.csky[2] * (45 - k)) / 45;
+						}
+					} else if (this.flk) {
+						i1 = (int) (255.0f + 255.0f * ((float) this.m.snap[0] / 100.0f));
+						if (i1 > 255) {
+							i1 = 255;
+						}
+						if (i1 < 0) {
+							i1 = 0;
+						}
+						l1 = 0;
+					}
+					this.rd.setColor(new Color(i1, l1, j2));
+					this.rd.drawPolygon(ai, ai1, 7);
 				}
-				this.rd.setColor(new Color(i1, l1, j2));
+			} else {
+				int k2;
+				int i2;
+				int j1 = 0;
+				do {
+					ai[j1] = this.xs(ai[j1], ai2[j1]);
+					ai1[j1] = this.ys(ai1[j1], ai2[j1]);
+				} while (++j1 < 7);
+				j1 = (int) (159.0f + 159.0f * ((float) this.m.snap[0] / 100.0f));
+				if (j1 > 255) {
+					j1 = 255;
+				}
+				if (j1 < 0) {
+					j1 = 0;
+				}
+				if ((i2 = (int) (207.0f + 207.0f * ((float) this.m.snap[1] / 100.0f))) > 255) {
+					i2 = 255;
+				}
+				if (i2 < 0) {
+					i2 = 0;
+				}
+				if ((k2 = (int) (255.0f + 255.0f * ((float) this.m.snap[2] / 100.0f))) > 255) {
+					k2 = 255;
+				}
+				if (k2 < 0) {
+					k2 = 0;
+				}
+				this.rd.setColor(new Color(j1, i2, k2));
+				this.rd.fillPolygon(ai, ai1, 7);
+				j1 = (int) (120.0f + 120.0f * ((float) this.m.snap[0] / 100.0f));
+				if (j1 > 255) {
+					j1 = 255;
+				}
+				if (j1 < 0) {
+					j1 = 0;
+				}
+				if ((i2 = (int) (114.0f + 114.0f * ((float) this.m.snap[1] / 100.0f))) > 255) {
+					i2 = 255;
+				}
+				if (i2 < 0) {
+					i2 = 0;
+				}
+				if ((k2 = (int) (255.0f + 255.0f * ((float) this.m.snap[2] / 100.0f))) > 255) {
+					k2 = 255;
+				}
+				if (k2 < 0) {
+					k2 = 0;
+				}
+				this.rd.setColor(new Color(j1, i2, k2));
 				this.rd.drawPolygon(ai, ai1, 7);
 			}
-		} else {
-			int k2;
-			int i2;
-			int j1 = 0;
-			do {
-				ai[j1] = this.xs(ai[j1], ai2[j1]);
-				ai1[j1] = this.ys(ai1[j1], ai2[j1]);
-			} while (++j1 < 7);
-			j1 = (int)(159.0f + 159.0f * ((float)this.m.snap[0] / 100.0f));
-			if (j1 > 255) {
-				j1 = 255;
-			}
-			if (j1 < 0) {
-				j1 = 0;
-			}
-			if ((i2 = (int)(207.0f + 207.0f * ((float)this.m.snap[1] / 100.0f))) > 255) {
-				i2 = 255;
-			}
-			if (i2 < 0) {
-				i2 = 0;
-			}
-			if ((k2 = (int)(255.0f + 255.0f * ((float)this.m.snap[2] / 100.0f))) > 255) {
-				k2 = 255;
-			}
-			if (k2 < 0) {
-				k2 = 0;
-			}
-			this.rd.setColor(new Color(j1, i2, k2));
-			this.rd.fillPolygon(ai, ai1, 7);
-			j1 = (int)(120.0f + 120.0f * ((float)this.m.snap[0] / 100.0f));
-			if (j1 > 255) {
-				j1 = 255;
-			}
-			if (j1 < 0) {
-				j1 = 0;
-			}
-			if ((i2 = (int)(114.0f + 114.0f * ((float)this.m.snap[1] / 100.0f))) > 255) {
-				i2 = 255;
-			}
-			if (i2 < 0) {
-				i2 = 0;
-			}
-			if ((k2 = (int)(255.0f + 255.0f * ((float)this.m.snap[2] / 100.0f))) > 255) {
-				k2 = 255;
-			}
-			if (k2 < 0) {
-				k2 = 0;
-			}
-			this.rd.setColor(new Color(j1, i2, k2));
-			this.rd.drawPolygon(ai, ai1, 7);
 		}
-	}
-
 	public void levelhigh(int i, int j, int k, int l, int i1) {
 		this.rd.drawImage(this.gameh, 236, 20, null);
 		int byte0 = 16;
@@ -1949,7 +1949,7 @@ implements Runnable {
 				} while (++i < 7);
 			}
 			if (flag) {
-				if (checkpoints.stage != 110 && this.arrace != control.arrace) {
+				if (checkpoints.stage != 110 && this.arrace != control.arrace && madness.cn == 7) {
 					this.arrace = control.arrace;
 					if (this.arrace) {
 						this.wasay = true;
@@ -1963,36 +1963,38 @@ implements Runnable {
 						this.cntan = 20;
 					}
 				}
-				if (!this.holdit && this.fase != -6 && this.starcnt == 0) {
-					this.arrow(madness.point, madness.missedcp, checkpoints, this.arrace);
-					if (!this.arrace && this.auscnt == 45 && madness.capcnt == 0) {
-						if (madness.missedcp > 0) {
-							if (madness.missedcp > 15 && madness.missedcp < 50) {
-								if (this.flk) {
-									this.drawcs(70, "Checkpoint Missed!", 255, 0, 0, 0);
-								} else {
-									this.drawcs(70, "Checkpoint Missed!", 255, 150, 0, 2);
+				if (madness.cn == 7 || madness.cn == 16 ) {
+					if (!this.holdit && this.fase != -6 && this.starcnt == 0) {
+						this.arrow(madness.point, madness.missedcp, checkpoints, this.arrace);
+						if (!this.arrace && this.auscnt == 45 && madness.capcnt == 0) {
+							if (madness.missedcp > 0) {
+								if (madness.missedcp > 15 && madness.missedcp < 50) {
+									if (this.flk) {
+										this.drawcs(70, "Checkpoint Missed!", 255, 0, 0, 0);
+									} else {
+										this.drawcs(70, "Checkpoint Missed!", 255, 150, 0, 2);
+									}
 								}
-							}
-							++madness.missedcp;
-							if (madness.missedcp == 70) {
-								madness.missedcp = -2;
-							}
-						} else if (madness.mtouch && this.cntovn < 70) {
-							if (Math.abs(this.ana) > 100) {
-								++this.cntan;
-							} else if (this.cntan != 0) {
-								--this.cntan;
-							}
-							if (this.cntan > 40) {
-								++this.cntovn;
-								this.cntan = 40;
-								if (this.flk) {
-									this.drawcs(70, "Wrong Way!", 255, 150, 0, 0);
-									this.flk = false;
-								} else {
-									this.drawcs(70, "Wrong Way!", 255, 0, 0, 2);
-									this.flk = true;
+								++madness.missedcp;
+								if (madness.missedcp == 70) {
+									madness.missedcp = -2;
+								}
+							} else if (madness.mtouch && this.cntovn < 70) {
+								if (Math.abs(this.ana) > 100) {
+									++this.cntan;
+								} else if (this.cntan != 0) {
+									--this.cntan;
+								}
+								if (this.cntan > 40) {
+									++this.cntovn;
+									this.cntan = 40;
+									if (this.flk) {
+										this.drawcs(70, "Wrong Way!", 255, 150, 0, 0);
+										this.flk = false;
+									} else {
+										this.drawcs(70, "Wrong Way!", 255, 0, 0, 2);
+										this.flk = true;
+									}
 								}
 							}
 						}
@@ -4404,8 +4406,8 @@ implements Runnable {
 			this.rd.setColor(new Color(k, i1, k1));
 			this.rd.setFont(new Font("SansSerif", 1, 13));
 			if (i == 1) {
-				this.rd.drawString("Hey!  Don't forget, to complete a lap you must pass through", 197, 67);
-				this.rd.drawString("all checkpoints in the track!", 197, 87);
+				this.rd.drawString("Welcome to the Grind! You know the drill...", 197, 67);
+				this.rd.drawString("Pass through all checkpoints to win!", 197, 107);
 			}
 			if (i == 2) {
 				this.rd.drawString("Remember, the more power you have the faster your car will be!", 197, 67);
